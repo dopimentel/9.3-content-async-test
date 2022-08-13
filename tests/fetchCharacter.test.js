@@ -6,4 +6,9 @@ describe("Teste a função fetchCharacter", () => {
     const caracter = await fetchCharacter("720");
     expect(caracter.name).toBe("Wonder Woman");
   });
+
+  it("Verifica se retorna erro ao executar a função sem parâmetro", async () => {
+    const failRequest = await fetchCharacter();
+    expect(failRequest).toEqual(new Error("You must provide an url"));
+  });
 });
